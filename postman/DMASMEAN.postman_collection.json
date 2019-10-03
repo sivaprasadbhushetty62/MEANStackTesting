@@ -1,0 +1,246 @@
+{
+	"info": {
+		"_postman_id": "008522b9-c9db-4901-86de-80e8ecee0812",
+		"name": "DMASMEAN",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get Videos",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "e712c9c4-5eaa-4341-8305-4d5c3428c524",
+						"exec": [
+							"tests[\"Successful Get Videos Request\"] = responseCode.code === 200"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://{{host}}/api/videos",
+					"protocol": "http",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"videos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "save a video",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "9c18beb4-2447-4d33-83b6-30e05a4be080",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "68341e6a-9f8c-4d58-a296-32f691f19368",
+						"exec": [
+							"var data = JSON.parse(responseBody);",
+							"postman.setEnvironmentVariable(\"id\", data.data._id);",
+							"",
+							"tests[\"Successful Post Request\"] = responseCode.code === 200"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "title",
+							"value": "MEAN Stack tutorial 12",
+							"type": "text"
+						},
+						{
+							"key": "url",
+							"value": "https://www.youtube.com/watch?v=_uWsdntbGOA&list=PLC3y8-rFHvwj200LLotCYum_9wmGeTJx9&index=12",
+							"type": "text"
+						},
+						{
+							"key": "Description",
+							"value": "MEAN tutorial 12",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://{{host}}/api/video",
+					"protocol": "http",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"video"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Video for a id",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "79288ec0-481b-4d65-8b89-d682bc72e175",
+						"exec": [
+							"tests[\"Successful Get Video Request\"] = responseCode.code === 200"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://{{host}}/api/videos/{{id}}",
+					"protocol": "http",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"videos",
+						"{{id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update video",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "32066fc3-7b76-42f9-a3a8-ae738383cab6",
+						"exec": [
+							"tests[\"Successful Update Video Request\"] = responseCode.code === 200"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "title",
+							"value": "MEAN Stack tutorial 12",
+							"type": "text"
+						},
+						{
+							"key": "url",
+							"value": "https://www.youtube.com/watch?v=_uWsdntbGOA&list=PLC3y8-rFHvwj200LLotCYum_9wmGeTJx9&index=12",
+							"type": "text"
+						},
+						{
+							"key": "Description",
+							"value": "MEAN tutorial 12 modify",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://{{host}}/api/video/{{id}}",
+					"protocol": "http",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"video",
+						"{{id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete video",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "cfee7d07-d173-41e5-b97a-f04689e2ad19",
+						"exec": [
+							"tests[\"Successful Delete Video Request\"] = responseCode.code === 200"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "http://{{host}}/api/video/{{id}}",
+					"protocol": "http",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"video",
+						"{{id}}"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
