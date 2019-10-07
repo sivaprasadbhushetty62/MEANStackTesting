@@ -3,7 +3,8 @@ const router = express.Router();
 
 const mongoose = require('mongoose');
 
-const dburl = "mongodb+srv://sivaprasad1110:admin@cluster0-lcbr7.mongodb.net/videoplayer?retryWrites=true&w=majority";
+//const dburl = "mongodb+srv://sivaprasad1110:admin@cluster0-lcbr7.mongodb.net/videoplayer?retryWrites=true&w=majority";
+const dburl = "mongodb://localhost:27017/videoplayer";
 mongoose.Promise = global.Promise;
 
 const options = {
