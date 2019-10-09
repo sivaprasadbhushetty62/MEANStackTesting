@@ -1,6 +1,6 @@
 <div>
     <div>
-        <iframe height="400" width="100%" [src]="_selectedVideo.url | safe" frameborder="0" allowfullscreen>
+        <iframe height="350px" width="100%" [src]="_selectedVideo.url.replace('watch','embed') | safe" frameborder="0" allowfullscreen>
         </iframe>
     </div>
     <form>
@@ -17,5 +17,7 @@
             <textarea class="form-control" rows="5" name="Description" [(ngModel)]="_selectedVideo.Description">
             </textarea>
         </div>
+        <button type="button" (click)="updateVideo()" class="btn btn-primary" style="margin-right: 4px">Update</button>
+        <button type="button" (click)="deleteVideo()" class="btn btn-danger" style="margin-left: 4px">Delete</button>
     </form>
 </div>
