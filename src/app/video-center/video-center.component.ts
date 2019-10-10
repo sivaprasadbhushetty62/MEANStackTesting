@@ -47,6 +47,7 @@ export class VideoCenterComponent implements OnInit {
   }
 
   onUpdateVideoEvent(video: any){
+    console.log('onUpdateVideoEvent');
     this.videoService.updateVideo(video)
     .subscribe((responseVideo) =>{
       this.selectedVideo = null;
@@ -54,8 +55,9 @@ export class VideoCenterComponent implements OnInit {
   }
 
   onDeleteVideoEvent(video: any){
+    console.log('onDeleteVideoEvent');
     let videoArray = this.videos;
-    this.videoService.deleteVideoById(video._id)
+    this.videoService.deleteVideoById(video)
     .subscribe((responseVideo)=>{
       for(let i=0;i<videoArray.length;i++){
         if(videoArray[i]._id === video._id){

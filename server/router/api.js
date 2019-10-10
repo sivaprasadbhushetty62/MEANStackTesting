@@ -52,10 +52,7 @@ router.get('/videos/:id', (req, res) => {
     let id = req.params.id;
     Video.findById(id)
     .then(video => {
-		res.json({
-			confirmation: 'success',
-			data: video
-		})
+		res.json(video);
 	}).catch(err => {
 		res.json({
 			confirmation:'failure',
@@ -75,10 +72,7 @@ router.post('/video', (req, res) => {
 
     Video.create(newVideo)
     .then(insertVideo => {
-		res.json({
-			confirmation: 'success',
-			data: insertVideo
-		})
+		res.json(insertVideo);
 	}).catch(err => {
 		res.json({
 			confirmation:'failure',
@@ -102,10 +96,7 @@ router.put('/video/:id', (req, res) => {
         new : true        
     })
     .then(updateVideo => {
-		res.json({
-			confirmation: 'success',
-			data: updateVideo
-		})
+		res.json(updateVideo);
 	}).catch(err => {
 		res.json({
 			confirmation:'failure',
@@ -118,10 +109,7 @@ router.delete('/video/:id', (req, res) => {
     console.log('delete Video ');
     Video.findByIdAndRemove(req.params.id)
     .then(deleteVideo => {
-		res.json({
-			confirmation: 'success',
-			data: deleteVideo
-		})
+		res.json(deleteVideo);
 	}).catch(err => {
 		res.json({
 			confirmation:'failure',

@@ -6,7 +6,7 @@ import { Video } from './../video';
   templateUrl: './video-detail.component.html',
   styleUrls: ['./video-detail.component.css'],
   inputs : ['_selectedVideo'],
-  outputs : [ 'UpdateVideo', 'DeleteVideo' ]
+  outputs : [ 'UpdateVideo','DeleteVideo' ]
 })
 export class VideoDetailComponent implements OnInit {
   _selectedVideo : any;
@@ -27,11 +27,13 @@ export class VideoDetailComponent implements OnInit {
   }
 
   updateVideo(){
+    console.log('updateVideo');
     this.UpdateVideo.emit(this._selectedVideo);
   }
 
   deleteVideo(){
-    this.UpdateVideo.emit(this._selectedVideo);
+    console.log('deleteVideo');
+    this.DeleteVideo.emit(this._selectedVideo);
   }
 
 }
